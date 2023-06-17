@@ -30,6 +30,7 @@ export default function Settings() {
     <View style={styles.container}>
       <View style={{ flexGrow: 0 }}>
         <Header
+          headerTitle={`Explore: ${params.selected}`}
           leftComponent={() => (
             <TouchableHighlight
               style={styles.backButton}
@@ -38,11 +39,6 @@ export default function Settings() {
             >
               <Text>&lt; Back</Text>
             </TouchableHighlight>
-          )}
-          centerComponent={() => (
-            <View>
-              <Text>Explore: {params.selected}</Text>
-            </View>
           )}
         />
       </View>

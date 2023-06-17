@@ -30,7 +30,7 @@ export default function Explore() {
             <TouchableHighlight
               style={{
                 borderBottomWidth: 1,
-                borderBottomColor: '#eee',
+                borderBottomColor: '#ddd',
                 padding: 10
               }}
               underlayColor="#eee"

@@ -13,6 +13,7 @@ export default function Main() {
 
           return (
             <Header
+              headerTitle={route.name}
               leftComponent={() => (
                 <TouchableHighlight
                   style={{ padding: 10 }}
@@ -24,16 +25,18 @@ export default function Main() {
                   <Text>Settings</Text>
                 </TouchableHighlight>
               )}
-              centerComponent={() => (
-                <Text>{route.name}</Text>
-              )}
             />
           )
         }
       }}
     >
       <Tabs.Screen name="index" />
-      <Tabs.Screen name="explore" />
+      <Tabs.Screen
+        name="explore"
+        options={{
+          unmountOnBlur: true
+        }}
+      />
     </Tabs>
   )
 }

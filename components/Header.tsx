@@ -1,41 +1,40 @@
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import { ReactElement } from 'react'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
-    height: 100,
+    height: 50,
     backgroundColor: '#fff',
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+    borderBottomWidth: 2,
+    borderBottomColor: '#eee',
     alignItems: 'center'
   },
   headerLeft: {
     width: 100,
     minHeight: 5
-    // backgroundColor: 'lightblue'
   },
   headerCenter: {
     flex: 1,
     alignItems: 'center'
-    // backgroundColor: 'pink'
   },
   headerRight: {
     width: 100,
     minHeight: 5
-    // backgroundColor: 'lightblue'
   }
 })
 
 export function Header({
   leftComponent = () => null,
   centerComponent = () => null,
-  rightComponent = () => null
+  rightComponent = () => null,
+  headerTitle
 }: {
   leftComponent?: () => ReactElement | null
   centerComponent?: () => ReactElement | null
   rightComponent?: () => ReactElement | null
+  headerTitle?: string
 }) {
   const insets = useSafeAreaInsets()
 
@@ -43,6 +42,7 @@ export function Header({
     <View
       style={{
         ...styles.header,
+        height: styles.header.height + insets.top,
         paddingTop: insets.top
       }}
     >
@@ -50,7 +50,15 @@ export function Header({
         {leftComponent()}
       </View>
       <View style={styles.headerCenter}>
-        {centerComponent()}
+        {headerTitle !== undefined ? (
+          <Text
+            style={{ fontSize: 16, fontWeight: 'bold' }}
+          >
+            {headerTitle}
+          </Text>
+        ) : (
+          centerComponent()
+        )}
       </View>
       <View style={styles.headerRight}>
         {rightComponent()}
