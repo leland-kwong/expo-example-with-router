@@ -1,31 +1,22 @@
-import { useRouter } from 'expo-router'
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableHighlight
-} from 'react-native'
+import * as React from 'react'
+import { SplashScreen, useRouter } from 'expo-router'
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-})
-
-export default function Index() {
+export default function App() {
+  const [isReady, setReady] = React.useState(false)
   const router = useRouter()
 
+  React.useEffect(() => {
+    // Perform some sort of async data or asset fetching.
+    setTimeout(() => {
+      setReady(true)
+      router.push('/main')
+    }, 1000)
+  }, [])
+
   return (
-    <View style={styles.container}>
-      <TouchableHighlight
-        onPress={() => router.push('/main')}
-      >
-        <Text>Go to main</Text>
-      </TouchableHighlight>
-      <Text>Index</Text>
-    </View>
+    <>
+      {/* When all loading is setup, unmount the splash screen component. */}
+      {!isReady && <SplashScreen />}
+    </>
   )
 }
