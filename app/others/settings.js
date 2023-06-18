@@ -1,11 +1,6 @@
-import { useRouter } from 'expo-router'
-import {
-  TouchableHighlight,
-  View,
-  StyleSheet,
-  Text
-} from 'react-native'
+import { View, StyleSheet, Text } from 'react-native'
 import { Header } from '../../components/Header'
+import { BackButton } from '../../components/BackButton'
 
 const styles = StyleSheet.create({
   container: {
@@ -23,22 +18,12 @@ const styles = StyleSheet.create({
 })
 
 export default function Settings() {
-  const router = useRouter()
-
   return (
     <View style={styles.container}>
       <View style={{ flexGrow: 0 }}>
         <Header
           headerTitle="Settings"
-          leftComponent={() => (
-            <TouchableHighlight
-              style={styles.backButton}
-              underlayColor="#ccc"
-              onPress={() => router.back()}
-            >
-              <Text>&lt; Back</Text>
-            </TouchableHighlight>
-          )}
+          leftComponent={BackButton}
         />
       </View>
       <View style={styles.main}>

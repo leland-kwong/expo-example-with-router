@@ -1,10 +1,6 @@
-import { useRouter, useSearchParams } from 'expo-router'
-import {
-  TouchableHighlight,
-  View,
-  StyleSheet,
-  Text
-} from 'react-native'
+import { useSearchParams } from 'expo-router'
+import { View, StyleSheet, Text } from 'react-native'
+import { BackButton } from '../../components/BackButton'
 import { Header } from '../../components/Header'
 
 const styles = StyleSheet.create({
@@ -23,7 +19,6 @@ const styles = StyleSheet.create({
 })
 
 export default function Settings() {
-  const router = useRouter()
   const params = useSearchParams()
 
   return (
@@ -31,15 +26,7 @@ export default function Settings() {
       <View style={{ flexGrow: 0 }}>
         <Header
           headerTitle={`Explore: ${params.selected}`}
-          leftComponent={() => (
-            <TouchableHighlight
-              style={styles.backButton}
-              underlayColor="#ccc"
-              onPress={() => router.back()}
-            >
-              <Text>&lt; Back</Text>
-            </TouchableHighlight>
-          )}
+          leftComponent={BackButton}
         />
       </View>
       <View style={styles.main}>
