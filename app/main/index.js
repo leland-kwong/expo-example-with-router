@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Text>Index</Text>
+      <Text>Home</Text>
     </View>
   )
 }

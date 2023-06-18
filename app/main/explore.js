@@ -1,4 +1,4 @@
-import { useRouter } from 'expo-router'
+import { Stack, useRouter } from 'expo-router'
 import {
   View,
   Text,
@@ -19,10 +19,11 @@ export default function Explore() {
   // an inline array of 30 different names
   const names = Array.from(
     { length: 30 },
-    (_, i) => `Name ${i + 1}`
+    (_, i) => `Item ${i + 1}`
   )
   return (
     <View style={styles.container}>
+      {/* <Stack.Screen options={{ title: 'Explore' }} /> */}
       <View>
         <FlatList
           data={names}

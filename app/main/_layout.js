@@ -1,4 +1,4 @@
-import { Text, TouchableHighlight } from 'react-native'
+import { Image, TouchableHighlight } from 'react-native'
 import { Tabs, useRouter } from 'expo-router'
 import { Header } from '../../components/Header'
 
@@ -9,12 +9,12 @@ export default function Main() {
     <Tabs
       screenOptions={{
         header(props) {
-          const { route } = props
+          const { options } = props
 
           return (
             <Header
-              headerTitle={route.name}
-              leftComponent={() => (
+              headerTitle={options.title}
+              rightComponent={() => (
                 <TouchableHighlight
                   style={{ padding: 10 }}
                   underlayColor="#ccc"
@@ -22,7 +22,10 @@ export default function Main() {
                     router.push('/others/settings')
                   }}
                 >
-                  <Text>Settings</Text>
+                  <Image
+                    source={require('../../assets/icons/settings-icon.png')}
+                    style={{ width: 20, height: 20 }}
+                  />
                 </TouchableHighlight>
               )}
             />
@@ -30,10 +33,16 @@ export default function Main() {
         }
       }}
     >
-      <Tabs.Screen name="index" />
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: 'Home'
+        }}
+      />
       <Tabs.Screen
         name="explore"
         options={{
+          title: 'Explore',
           unmountOnBlur: true
         }}
       />

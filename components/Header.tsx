@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
   },
   headerRight: {
     width: 100,
-    minHeight: 5
+    minHeight: 5,
+    alignItems: 'flex-end'
   }
 })
 
