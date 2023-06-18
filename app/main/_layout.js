@@ -2,6 +2,8 @@ import { Image, TouchableHighlight } from 'react-native'
 import { Tabs, useRouter } from 'expo-router'
 import { Header } from '../../components/Header'
 
+const settingsIcon = require('../../assets/icons/settings-icon.png')
+
 export default function Main() {
   const router = useRouter()
 
@@ -23,7 +25,7 @@ export default function Main() {
                   }}
                 >
                   <Image
-                    source={require('../../assets/icons/settings-icon.png')}
+                    source={settingsIcon}
                     style={{ width: 20, height: 20 }}
                   />
                 </TouchableHighlight>
