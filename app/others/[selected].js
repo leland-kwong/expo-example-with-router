@@ -19,18 +19,18 @@ const styles = StyleSheet.create({
 })
 
 export default function Settings() {
-  const params = useSearchParams()
+  const { selected } = useSearchParams()
 
   return (
     <View style={styles.container}>
       <View style={{ flexGrow: 0 }}>
         <Header
-          headerTitle={`Explore: ${params.selected}`}
+          headerTitle={`Explore: ${selected}`}
           leftComponent={BackButton}
         />
       </View>
       <View style={styles.main}>
-        <Text>Explore</Text>
+        <Text>{selected}</Text>
       </View>
     </View>
   )

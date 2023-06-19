@@ -1,4 +1,4 @@
-import { Stack, useRouter } from 'expo-router'
+import { useRouter } from 'expo-router'
 import {
   View,
   Text,
@@ -14,19 +14,25 @@ const styles = StyleSheet.create({
   }
 })
 
-export default function Explore() {
-  const router = useRouter()
+function useListData() {
   // an inline array of 30 different names
   const names = Array.from(
     { length: 30 },
     (_, i) => `Item ${i + 1}`
   )
+
+  return names
+}
+
+export default function Explore() {
+  const router = useRouter()
+  const data = useListData()
+
   return (
     <View style={styles.container}>
-      {/* <Stack.Screen options={{ title: 'Explore' }} /> */}
       <View>
         <FlatList
-          data={names}
+          data={data}
           renderItem={({ item }) => (
             <TouchableHighlight
               style={{

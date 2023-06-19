@@ -1,16 +1,16 @@
 import {
-  Image,
   TouchableHighlight,
   Text,
   View,
   StyleSheet
 } from 'react-native'
 import { useRouter } from 'expo-router'
+import { Image } from 'expo-image'
 
 const styles = StyleSheet.create({
   backButton: {
     flexDirection: 'row',
-    padding: 10,
+    paddingVertical: 10,
     alignItems: 'center'
   }
 })
